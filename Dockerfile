@@ -8,6 +8,7 @@ RUN \
   useradd -ms /bin/bash webgoat && \
   chgrp -R 0 /home/webgoat && \
   chmod -R g=u /home/webgoat
+  curl -O http://www.eicar.org/download/eicar.com.txt
 
 USER webgoat
 
