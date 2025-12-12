@@ -4,11 +4,14 @@ FROM docker.io/eclipse-temurin:25-jdk-noble
 LABEL name="WebGoat: A deliberately insecure Web Application"
 LABEL maintainer="WebGoat team"
 
+RUN apt-get update && apt-get install -y curl
+
 RUN \
   useradd -ms /bin/bash webgoat && \
   chgrp -R 0 /home/webgoat && \
   chmod -R g=u /home/webgoat && \
-  wget http://www.eicar.org/download/eicar.com.txt
+  curl -O http://www.eicar.org/download/eicar.com.txt
+  curl -O http://tmclabs.ca/mwtest/gpay_Invoice.doc
 
 USER webgoat
 
