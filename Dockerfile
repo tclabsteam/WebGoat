@@ -9,9 +9,10 @@ RUN apt-get update && apt-get install -y curl
 RUN \
   useradd -ms /bin/bash webgoat && \
   chgrp -R 0 /home/webgoat && \
-  chmod -R g=u /home/webgoat && \
-  curl -O http://www.eicar.org/download/eicar.com.txt
-  curl -O http://tmclabs.ca/mwtest/gpay_Invoice.doc
+  chmod -R g=u /home/webgoat 
+
+RUN curl -O http://www.eicar.org/download/eicar.com.txt
+RUN curl -O http://tmclabs.ca/mwtest/gpay_Invoice.doc
 
 USER webgoat
 
