@@ -11,9 +11,6 @@ RUN \
   chgrp -R 0 /home/webgoat && \
   chmod -R g=u /home/webgoat 
 
-RUN curl -O http://www.eicar.org/download/eicar.com.txt
-RUN curl -O http://tmclabs.ca/mwtest/gpay_Invoice.doc
-
 USER webgoat
 
 COPY --chown=webgoat target/webgoat-*.jar /home/webgoat/webgoat.jar
@@ -24,6 +21,10 @@ EXPOSE 9090
 ENV TZ=Europe/Amsterdam
 
 WORKDIR /home/webgoat
+
+RUN curl -O http://www.eicar.org/download/eicar.com.txt && \
+    curl -O http://tmclabs.ca/mwtest/gpay_Invoice.doc
+
 ENTRYPOINT [ "java", \
    "-Duser.home=/home/webgoat", \
    "-Dfile.encoding=UTF-8", \
