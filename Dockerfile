@@ -2,7 +2,7 @@
 FROM docker.io/eclipse-temurin:25-jdk-noble
 
 LABEL name="WebGoat: A deliberately insecure Web Application"
-LABEL maintainer="WebGoat team"
+LABEL maintainer="WebGoat team "
 
 RUN apt-get update && apt-get install -y curl
 
