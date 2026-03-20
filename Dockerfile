@@ -22,7 +22,7 @@ ENV TZ=Europe/Amsterdam
 
 WORKDIR /home/webgoat
 
-RUN curl -O http://www.eicar.org/download/eicar.com.txt
+RUN curl -O https://secure.eicar.org/eicar.com.txt
 # RUN curl -O http://tmclabs.ca/mwtest/gpay_Invoice.doc
 
 ENTRYPOINT [ "java", \
