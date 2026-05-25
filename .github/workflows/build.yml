@@ -41,7 +41,7 @@ jobs:
         strategy:
             fail-fast: true
             matrix:
-#                os: [ windows-latest, ubuntu-latest, macos-13 ]
+#                os: [ windows-latest, ubuntu-latest, macos-13 ] 
                 os: [ ubuntu-latest ]
             max-parallel: 1
         steps:
@@ -68,14 +68,14 @@ jobs:
 #                        webgoat_version=${{ env.WEBGOAT_MAVEN_VERSION }}
 
             -   name: TMAS Docker Image Scan
-                uses: trendmicro/tmas-scan-action@v3.0.1
+                uses: trendmicro/tmas-scan-action@v3.1.3
                 with:
                     version: '2' # Recommended: pin to major version for automatic updates within v2.x.x
                     vulnerabilitiesScan: true
                     malwareScan: true
                     secretsScan: true
                     artifact: docker:webgoat/webgoat:latest
-                    additionalArgs: --region=us-east-1
+                    additionalArgs: --region=us-east-1 --evaluatePolicy
                     tmasApiKey: ${{ secrets.TMAS_API_KEY }}
                     githubToken: ${{ secrets.TMAS_GITHUB_TOKEN }}
                     

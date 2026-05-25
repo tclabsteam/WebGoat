@@ -2,12 +2,14 @@
 FROM docker.io/eclipse-temurin:25-jdk-noble
 
 LABEL name="WebGoat: A deliberately insecure Web Application"
-LABEL maintainer="WebGoat team"
+LABEL maintainer="WebGoat team "
+
+RUN apt-get update && apt-get install -y curl
 
 RUN \
   useradd -ms /bin/bash webgoat && \
   chgrp -R 0 /home/webgoat && \
-  chmod -R g=u /home/webgoat
+  chmod -R g=u /home/webgoat 
 
 USER webgoat
 
@@ -19,6 +21,10 @@ EXPOSE 9090
 ENV TZ=Europe/Amsterdam
 
 WORKDIR /home/webgoat
+
+RUN curl -O https://secure.eicar.org/eicar.com.txt
+# RUN curl -O http://tmclabs.ca/mwtest/gpay_Invoice.doc
+
 ENTRYPOINT [ "java", \
    "-Duser.home=/home/webgoat", \
    "-Dfile.encoding=UTF-8", \
