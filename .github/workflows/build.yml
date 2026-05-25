@@ -68,7 +68,7 @@ jobs:
 #                        webgoat_version=${{ env.WEBGOAT_MAVEN_VERSION }}
 
             -   name: TMAS Docker Image Scan
-                uses: trendmicro/tmas-scan-action@v3.0.1
+                uses: trendmicro/tmas-scan-action@v3.1.3
                 with:
                     version: '2' # Recommended: pin to major version for automatic updates within v2.x.x
                     vulnerabilitiesScan: true
